@@ -104,6 +104,9 @@ def main():
         irreversible, xI, df_spams_sel["var_xI"].values[0]
     )
 
+    ## Compute F-value
+    F = utils.f_value(df_spams_sel["rss"].values[0], df_spams_sel['dof'].values[0])
+
     ## Plot for a parcel
     fig, ax1 = plt.subplots(figsize=(12, 6))
 
@@ -119,6 +122,7 @@ def main():
     info_text = (
         f"Parcel ID: {pid}\n"
         f"Loc (lon, lat): {round(df_spams_sel['pnt_lon'].values[0], 4)}, {round(df_spams_sel['pnt_lat'].values[0], 4)}\n"
+        f"F-value = {round(F, 2)}\n"
         f"SPAMS parameters:\n"
         f"\t$x_P$ = {utils.format_with_uncertainty(xP, std_xP)}\n"
         f"\t$x_E$ = {utils.format_with_uncertainty(xE, std_xE)}\n"
@@ -129,7 +133,7 @@ def main():
     )
     ax1.text(
         0.01,
-        0.87,
+        0.86,
         info_text,
         verticalalignment="center",
         transform=ax1.transAxes,
@@ -137,7 +141,12 @@ def main():
         bbox=dict(facecolor="white", alpha=0.7, edgecolor="gray"),
     )
 
-    source_text = "Source: https://doi.org/10.4121/dfbe9109-d058-4a64-a5b4-1cc9d9a5f836"
+    if "krimpenerwaard" in args.spams10_filepath:
+        source_text = "Source: https://doi.org/10.4121/dfbe9109-d058-4a64-a5b4-1cc9d9a5f836"
+    elif "delfland" in args.spams10_filepath:
+        source_text = "Source: https://doi.org/10.4121/c8646561-5475-4e23-bd90-3b1a3375ac7c"
+    else:
+        source_text = "Source: no DOI found"
     ax1.text(
         0.01,
         0.03,

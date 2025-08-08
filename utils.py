@@ -76,6 +76,32 @@ def irreversible_rate(irreversible, xI, var_xI):
     return vI, std_vI
 
 
+def f_value(rss, dof):
+    """F-value statistic: the weighted sum of squared residuals between InSAR and SPAMS,
+    normalized by the degrees of freedom for each parcel.
+
+    This value evaluates model suitability and identify whether an error is present in
+    the mathematical model. Values close to one suggest model adequacy, while values
+    larger than one indicate either model imperfections or an overly optimistic
+    stochastic model. Conversely, values significantly smaller than one imply either an
+    overly pessimistic stochastic model, i.e., underestimating the quality of
+    observations, or an over-parameterized functional model.
+
+    Parameters
+    ----------
+    rss : float
+        The weighted residual sum of squares (rss).
+    dof : int
+        Degree of freedom.
+
+    Returns
+    -------
+    float
+        F-value.
+    """
+    return rss / dof
+
+
 def read_knmi(file):
     """Precipitation and evapotranspiration data from
     The Royal Netherlands Meteorological Institute (KNMI).
