@@ -15,7 +15,7 @@ To generate time series surface motion using SPAMS, you need two datasets:
 - A set of estimated SPAMS parameters (see the reference for more details).
 - Daily precipitation and evapotranspiration values.
 
-An example set of SPAMS parameters (SPAMS10) is available for the Krimpenerwaard region in the Netherlands through [4TU.ResearchData](https://doi.org/10.4121/dfbe9109-d058-4a64-a5b4-1cc9d9a5f836). Users can download the data and the metadata from that repository to model relative surface elevation changes using this repository. The meteorological data from The Royal Netherlands Meteorological Institute [KNMI](https://www.knmi.nl/nederland-nu/klimatologie/daggegevens) stations can be downloaded following the station ID available in the metadata.
+An example set of SPAMS parameters (SPAMS10) is available for several regions in the Netherlands through [4TU.ResearchData](https://doi.org/10.4121/c8646561-5475-4e23-bd90-3b1a3375ac7c.v1). Users can download the data and the metadata from that repository to model relative surface elevation changes using this repository. The meteorological data from The Royal Netherlands Meteorological Institute [KNMI](https://www.knmi.nl/nederland-nu/klimatologie/daggegevens) stations can be downloaded following the station ID available in the metadata.
 
 ## Usage
 ### Get information about required input parameters
